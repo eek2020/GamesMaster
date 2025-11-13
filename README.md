@@ -20,9 +20,16 @@ A user-friendly macOS installer for playing Street Fighter 2 Champion Edition on
 
 1. Clone this repository
 2. Add dependencies to `vendor/` folder (see above)
-3. Run the installer build script:
+3. Validate setup:
+
    ```bash
-   ./scripts/build-installer.sh
+   ./scripts/test-setup.sh
+   ```
+
+4. Build the app bundles:
+
+   ```bash
+   ./scripts/build-all.sh
    ```
 
 ### Usage

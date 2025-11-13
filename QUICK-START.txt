@@ -1,0 +1,111 @@
+╔═══════════════════════════════════════════════════════════════╗
+║                   GAMESMASTER - QUICK START                   ║
+╚═══════════════════════════════════════════════════════════════╝
+
+📍 CURRENT STATUS: Phase 2 Complete - Ready for Testing
+
+⚠️  BLOCKED: Need to download 2 dependencies first!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📥 STEP 1: DOWNLOAD DEPENDENCIES
+
+1. RetroArch.app (Apple Silicon)
+   → https://www.retroarch.com/?page=platforms
+   → Place in: vendor/retroarch/RetroArch.app
+
+2. sf2ce.zip ROM
+   → Obtain Street Fighter 2 CE ROM
+   → Place in: vendor/roms/sf2ce.zip
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ STEP 2: VALIDATE SETUP
+
+   ./scripts/test-setup.sh
+
+   Should show all green checkmarks ✓
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔨 STEP 3: BUILD APPS
+
+   ./scripts/build-all.sh
+
+   Creates:
+   • SF2 Installer.app
+   • SF2 Launcher.app
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🧪 STEP 4: TEST
+
+   1. Double-click SF2 Installer.app
+   2. Double-click SF2 Launcher.app
+   3. Test Host mode
+   4. Test Client mode (with friend)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📚 DOCUMENTATION
+
+   SETUP.md       → Comprehensive setup guide (START HERE!)
+   NEXT-STEPS.md  → Quick reference for next actions
+   STATUS.md      → Current project status
+   README.md      → Project overview
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🛠️  HELPFUL COMMANDS
+
+   ./scripts/dev-helper.sh          # Interactive menu
+   ./scripts/test-setup.sh          # Validate setup
+   ./scripts/build-all.sh           # Build both apps
+   ./scripts/build-installer-app.sh # Build installer only
+   ./scripts/build-launcher-app.sh  # Build launcher only
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🐛 TROUBLESHOOTING
+
+   "RetroArch.app not found"
+   → Check: vendor/retroarch/RetroArch.app exists
+   → Ensure it's Apple Silicon version
+
+   "ROM not found"
+   → Check: vendor/roms/sf2ce.zip exists
+   → Filename must be exactly "sf2ce.zip"
+
+   "Permission denied"
+   → Run: chmod +x scripts/*.sh
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📁 EXPECTED FILE STRUCTURE
+
+   GamesMaster/
+   ├── vendor/
+   │   ├── retroarch/
+   │   │   └── RetroArch.app/     ← YOU NEED THIS
+   │   └── roms/
+   │       └── sf2ce.zip           ← YOU NEED THIS
+   ├── scripts/
+   │   └── *.sh                    ✓ Ready
+   └── src/
+       └── */                      ✓ Ready
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎯 YOUR NEXT ACTION
+
+   1. Download RetroArch.app
+   2. Obtain sf2ce.zip ROM
+   3. Run: ./scripts/test-setup.sh
+   4. Run: ./scripts/build-all.sh
+   5. Test the apps!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+💡 TIP: Read SETUP.md for detailed instructions!
+
+╚═══════════════════════════════════════════════════════════════╝

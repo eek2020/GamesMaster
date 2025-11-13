@@ -4,11 +4,13 @@ set -euo pipefail
 # SF2 RetroArch Installer Script
 # Installs RetroArch, FBNeo core, ROM, and netplay configuration
 
-# Color output
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-YELLOW='\033[1;33m'
-NC='\033[0m' # No Color
+# Load shared logging utilities
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+source "$SCRIPT_DIR/../shared/logging.sh"
+
+# Initialize logging
+init_logging "installer"
+cleanup_old_logs "installer_*.log" 10
 
 # Paths
 RETROARCH_APP="/Applications/RetroArch.app"
@@ -16,21 +18,8 @@ RETROARCH_CONFIG="$HOME/Library/Application Support/RetroArch"
 RETROARCH_CORES="$RETROARCH_CONFIG/cores"
 RETROARCH_ROMS="$RETROARCH_CONFIG/downloads"
 RETROARCH_CFG="$RETROARCH_CONFIG/retroarch.cfg"
-VENDOR_RETROARCH="$(dirname "$0")/../../vendor/retroarch/RetroArch.app"
-VENDOR_ROM="$(dirname "$0")/../../vendor/roms/sf2ce.zip"
-
-# Functions
-log_info() {
-    echo -e "${GREEN}[INFO]${NC} $1"
-}
-
-log_warn() {
-    echo -e "${YELLOW}[WARN]${NC} $1"
-}
-
-log_error() {
-    echo -e "${RED}[ERROR]${NC} $1"
-}
+VENDOR_RETROARCH="$SCRIPT_DIR/../../vendor/retroarch/RetroArch.app"
+VENDOR_ROM="$SCRIPT_DIR/../../vendor/roms/sf2ce.zip"
 
 check_dependencies() {
     log_info "Checking dependencies..."

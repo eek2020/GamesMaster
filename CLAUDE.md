@@ -45,36 +45,68 @@ This project aims to create a user-friendly macOS installer package for playing 
 
 ## Current Status
 
-**Phase 1 Complete** - Foundation established with working shell scripts.
+**Phase 2 In Progress** - Build system and logging infrastructure complete.
 
 ### Implemented
+
 - ✅ Project directory structure (following conventions)
 - ✅ `.gitignore` and dependency management
 - ✅ Installer script (`src/installer/install-retroarch.sh`)
 - ✅ Launcher script (`src/launcher/launch-sf2.sh`)
 - ✅ RetroArch relay server integration (lowest latency)
 - ✅ Documentation (README, QUICKSTART, vendor instructions)
+- ✅ Shared logging system (`src/shared/logging.sh`)
+- ✅ Build scripts for creating .app bundles
+- ✅ Test setup validation script
 
 ### Key Decisions Made
+
 - **ROM Distribution**: User supplies their own ROM file
 - **Networking**: Using RetroArch relay servers (no port forwarding needed)
 - **Code Signing**: Not required (personal use between friends)
+- **Logging**: All operations logged to `logs/` directory (gitignored)
+
+## Build System
+
+### Building App Bundles
+
+```bash
+# Build both apps
+./scripts/build-all.sh
+
+# Or build individually
+./scripts/build-installer-app.sh
+./scripts/build-launcher-app.sh
+```
+
+### Testing Setup
+
+```bash
+# Validate project structure and dependencies
+./scripts/test-setup.sh
+```
 
 ## Next Steps
 
-### Phase 2: Testing & Refinement
+### Phase 2: Testing & Refinement (Current)
+
 1. Obtain RetroArch.app from official DMG → place in `vendor/retroarch/`
 2. Obtain sf2ce.zip ROM file → place in `vendor/roms/`
-3. Test installer script end-to-end
-4. Test launcher with relay server connection
-5. Verify on both M1 and M3 Macs
+3. Run `./scripts/test-setup.sh` to validate
+4. Build app bundles with `./scripts/build-all.sh`
+5. Test installer app end-to-end
+6. Test launcher with relay server connection
+7. Verify on both M1 and M3 Macs
 
-### Phase 3: App Bundle Creation (Optional)
-6. Create macOS `.app` bundle wrappers for easier distribution
-7. Add custom icons and UI polish
-8. Package as distributable DMG or ZIP
+### Phase 3: Polish & Distribution
+
+1. Add custom icons for app bundles
+2. Improve error messages and user feedback
+3. Create distributable DMG or ZIP
+4. Write end-user documentation
 
 ### Phase 4: Production
-9. Final testing with friend over internet
-10. Document any issues and fixes
-11. Create distribution package
+
+1. Final testing with friend over internet
+2. Document any issues and fixes
+3. Create distribution package

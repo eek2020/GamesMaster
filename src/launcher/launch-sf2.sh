@@ -4,31 +4,19 @@ set -euo pipefail
 # SF2 Netplay Launcher Script
 # Launches RetroArch with SF2CE in netplay mode
 
-# Color output
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-YELLOW='\033[1;33m'
-BLUE='\033[0;34m'
-NC='\033[0m' # No Color
+# Load shared logging utilities
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+source "$SCRIPT_DIR/../shared/logging.sh"
+
+# Initialize logging
+init_logging "launcher"
+cleanup_old_logs "launcher_*.log" 10
 
 # Paths
 RETROARCH_APP="/Applications/RetroArch.app"
 RETROARCH_CLI="$RETROARCH_APP/Contents/MacOS/RetroArch"
 ROM_PATH="$HOME/Library/Application Support/RetroArch/downloads/sf2ce.zip"
 CORE_PATH="$HOME/Library/Application Support/RetroArch/cores/fbneo_libretro.dylib"
-
-# Functions
-log_info() {
-    echo -e "${GREEN}[INFO]${NC} $1"
-}
-
-log_warn() {
-    echo -e "${YELLOW}[WARN]${NC} $1"
-}
-
-log_error() {
-    echo -e "${RED}[ERROR]${NC} $1"
-}
 
 check_installation() {
     log_info "Checking installation..."
