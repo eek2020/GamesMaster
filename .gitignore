@@ -1,0 +1,33 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Build outputs
+build/
+dist/
+
+# ROMs and copyrighted content
+vendor/roms/*.zip
+vendor/roms/*.bin
+*.zip
+*.bin
+
+# RetroArch bundle (too large for git)
+vendor/retroarch/
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+
+# IDE
+.vscode/
+.idea/
+
+# User-specific configs
+*.local
